@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## profile belongs to users テーブル
+<!-- ## profile belongs to users テーブル
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
@@ -32,19 +32,23 @@ Things you may want to cover:
 | first_name_huri    | string | NOT NULL    |
 | last_name_huri     | string | NOT NULL    |
 | birthday           | string | NOT NULL    |
+ -->
 
-
-## users has_one profile テーブル
+## user テーブル
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | email              | string | NOT NULL    |
 | encrypted_password | string | NOT NULL    |
 | nickname           | string | NOT NULL    |
+| first_name         | string | NOT NULL    |
+| last_name          | string | NOT NULL    |
+| first_name_huri    | string | NOT NULL    |
+| last_name_huri     | string | NOT NULL    |
+| birthday           | string | NOT NULL    |
 
 
-
-## items テーブル
+## item テーブル
 
 | Column       | Type           | Options     |
 | ------------ | -------------- | ----------- |
@@ -55,17 +59,17 @@ Things you may want to cover:
 | period       | string         | NOT NULL    |
 | image        | Active Storage |             |
 | user         | reference      |             |
-
+<!-- 
 ## credit   has_one Shipping address テーブル
 
 | Column           | Type           | Options                        |
 | ---------------- | -------------- | ------------------------------ |
 | chip             | string         | NOT NULL                       |
 | date of expiry   | string         | NOT NULL                       |
-| security         | string         | NOT NULL                       |
+| security         | string         | NOT NULL                       | -->
 
 
-## Shipping address belong　to credit
+## Shipping address belong　to credit　テーブル
 | Column           | Type           | Options                        |
 |------------------|----------------|--------------------------------|
 | post_number      | string         | NOT NULL                       |
@@ -73,24 +77,36 @@ Things you may want to cover:
 | address1         | string         | NOT NULL                       |
 | address2         | string         | NOT NULL                       |
 | address3         | string         | NOT NULL                       |
-| phon_number      | string         | NOT NULL                       |
+| phone_number      | string         | NOT NULL                       |
 | user             | reference      |                                |
 
+## order テーブル
+
+| Column           | Type           | Options                        |
+|------------------|----------------|--------------------------------|
+| items            | reference      |                                |
+| user             | reference      |                                |
 
 アプリケーション名          　”furima-36771”
 
 アプリケーション概要          	このアプリケーションでできることを記述。
+                            ・商品の出品、編集、削除をすることができ、また他ユーザーの商品をアプリケーション内にて購入することができる。
+                            ・ログイン、ログアウト機能もあり、登録することができる
 
 URL	デプロイ済みのURLを記述    デプロイが済んでいない場合は、デプロイが完了次第記述すること。
+　　　　　　　　　　　　　　　　　
 
 テスト用アカウント             	ログイン機能等を実装した場合は、ログインに必要な情報を記述。またBasic認証等を設けている場合は、そ
 のID/Passも記述すること。
 
 利用方法	このアプリケーションの利用方法を記述。
+        ・商品の、売買を行うことができる
 
 目指した課題解決	このアプリケーションを通じて、どのような人の、どのような課題を解決しようとしているのかを記述。
+　　　　　　　　　・少ない手間、多く情報を閲覧することができ、売買したいユーザー向け
 
 洗い出した要件	スプレッドシートにまとめた要件定義を記述。
+　　　　　　　　　　　
 
 実装した機能についての画像やGIFおよびその説明	実装した機能について、それぞれどのような特徴があるのかを列挙する形で記述。画像はGyazoで、GIFはGyazoGIFで撮影すること。
 
