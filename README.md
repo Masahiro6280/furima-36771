@@ -23,16 +23,7 @@ Things you may want to cover:
 
 * ...
 
-<!-- ## profile belongs to users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| first_name         | string | NOT NULL    |
-| last_name          | string | NOT NULL    |
-| first_name_huri    | string | NOT NULL    |
-| last_name_huri     | string | NOT NULL    |
-| birthday           | string | NOT NULL    |
- -->
 
 ## user テーブル
 
@@ -45,31 +36,24 @@ Things you may want to cover:
 | last_name          | string | NOT NULL    |
 | first_name_huri    | string | NOT NULL    |
 | last_name_huri     | string | NOT NULL    |
-| birthday           | string | NOT NULL    |
+| birthday           | date   | NOT NULL    |
 
 
 ## item テーブル
 
-| Column       | Type           | Options     |
-| ------------ | -------------- | ----------- |
-| title        | string         | NOT NULL    |
-| category     | string         | NOT NULL    |
-| status       | string         | NOT NULL    |
-| area         | string         | NOT NULL    |
-| period       | string         | NOT NULL    |
-| image        | Active Storage |             |
-| user         | reference      |             |
-<!-- 
-## credit   has_one Shipping address テーブル
-
-| Column           | Type           | Options                        |
-| ---------------- | -------------- | ------------------------------ |
-| chip             | string         | NOT NULL                       |
-| date of expiry   | string         | NOT NULL                       |
-| security         | string         | NOT NULL                       | -->
+| Column       | Type           | Options                    |
+| ------------ | -------------- | ---------------------------|
+| title        | string         | NOT NULL    　　　　　　　　　|
+| category     | string         | NOT NULL    　　　　　　　　　|
+| status       | string         | NOT NULL    　　　　　　　　　|
+| area         | string         | NOT NULL    　　　　　　　　　|
+| period       | string         | NOT NULL    　　　　　　　　　|
+| image        | Active Storage |             　　　　　　　　　|
+| user         | reference      | foreign_key: true          |
 
 
-## Shipping address belong　to credit　テーブル
+
+## Addresses テーブル
 | Column           | Type           | Options                        |
 |------------------|----------------|--------------------------------|
 | post_number      | string         | NOT NULL                       |
@@ -77,15 +61,15 @@ Things you may want to cover:
 | address1         | string         | NOT NULL                       |
 | address2         | string         | NOT NULL                       |
 | address3         | string         | NOT NULL                       |
-| phone_number      | string         | NOT NULL                       |
-| user             | reference      |                                |
+| phone_number     | string         | NOT NULL                       |
+| user             | reference      | foreign_key: true              |
 
-## order テーブル
+## Orders テーブル
 
 | Column           | Type           | Options                        |
 |------------------|----------------|--------------------------------|
-| items            | reference      |                                |
-| user             | reference      |                                |
+| items            | reference      | foreign_key: true              |
+| user             | reference      | foreign_key: true              |
 
 アプリケーション名          　”furima-36771”
 
