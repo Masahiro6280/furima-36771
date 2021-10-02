@@ -25,7 +25,7 @@ Things you may want to cover:
 
 
 
-## user テーブル
+## users テーブル
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
@@ -38,8 +38,13 @@ Things you may want to cover:
 | last_name_huri     | string | NOT NULL    |
 | birthday           | date   | NOT NULL    |
 
+### Association
 
-## item テーブル
+* has_many :items
+* has_many :Addresses
+
+
+## items テーブル
 
 | Column       | Type           | Options                    |
 | ------------ | -------------- | ---------------------------|
@@ -48,9 +53,12 @@ Things you may want to cover:
 | status       | string         | NOT NULL    　　　　　　　　　|
 | area         | string         | NOT NULL    　　　　　　　　　|
 | period       | string         | NOT NULL    　　　　　　　　　|
-| image        | Active Storage |             　　　　　　　　　|
 | user         | reference      | foreign_key: true          |
 
+### Association
+
+* has_many :Addresses
+* belongs_to :users
 
 
 ## Addresses テーブル
@@ -64,12 +72,22 @@ Things you may want to cover:
 | phone_number     | string         | NOT NULL                       |
 | user             | reference      | foreign_key: true              |
 
+### Association
+
+* belongs_to :users
+* belongs_to :items
+* has_one :Orders
+
 ## Orders テーブル
 
 | Column           | Type           | Options                        |
 |------------------|----------------|--------------------------------|
 | items            | reference      | foreign_key: true              |
 | user             | reference      | foreign_key: true              |
+
+### Association
+
+* belongs_to :Orders
 
 アプリケーション名          　”furima-36771”
 
