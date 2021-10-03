@@ -53,7 +53,7 @@ Things you may want to cover:
 | status       | string         | NOT NULL    　　　　　　　　　|
 | area         | string         | NOT NULL    　　　　　　　　　|
 | period       | string         | NOT NULL    　　　　　　　　　|
-| user         | reference      | foreign_key: true          |
+| user         | references     | NOT NUll,foreign_key: true |
 
 ### Association
 
@@ -61,7 +61,7 @@ Things you may want to cover:
 * belongs_to :user
 
 
-## Addresses テーブル
+## addresses テーブル
 | Column           | Type           | Options                        |
 |------------------|----------------|--------------------------------|
 | post_number      | string         | NOT NULL                       |
@@ -70,24 +70,24 @@ Things you may want to cover:
 | address2         | string         | NOT NULL                       |
 | address3         | string         | NOT NULL                       |
 | phone_number     | string         | NOT NULL                       |
-| user             | reference      | foreign_key: true              |
+| user             | references     | NOT NUll, foreign_key: true    |
 
 ### Association
 
-* belongs_to :Address
+* belongs_to :order
 
-## Orders テーブル
+## orders テーブル
 
 | Column           | Type           | Options                        |
 |------------------|----------------|--------------------------------|
-| items            | reference      | foreign_key: true              |
-| user             | reference      | foreign_key: true              |
+| item            | references     | NOT NUll,foreign_key: true     |
+| user             | references     | NOT NUll,foreign_key: true     |
 
 ### Association
 
 * belongs_to :user
 * belongs_to :item
-* has_one :Order
+* has_one :address
 
 
 アプリケーション名          　”furima-36771”
