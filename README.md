@@ -41,7 +41,7 @@ Things you may want to cover:
 ### Association
 
 * has_many :items
-* has_many :Addresses
+* has_many :Orders
 
 
 ## items テーブル
@@ -57,8 +57,8 @@ Things you may want to cover:
 
 ### Association
 
-* has_many :Addresses
-* belongs_to :users
+* belongs_to :order
+* belongs_to :user
 
 
 ## Addresses テーブル
@@ -74,9 +74,7 @@ Things you may want to cover:
 
 ### Association
 
-* belongs_to :users
-* belongs_to :items
-* has_one :Orders
+* belongs_to :Address
 
 ## Orders テーブル
 
@@ -87,7 +85,10 @@ Things you may want to cover:
 
 ### Association
 
-* belongs_to :Orders
+* belongs_to :user
+* belongs_to :item
+* has_one :Order
+
 
 アプリケーション名          　”furima-36771”
 
