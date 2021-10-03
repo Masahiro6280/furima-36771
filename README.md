@@ -27,50 +27,54 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| email              | string | NOT NULL    |
-| encrypted_password | string | NOT NULL    |
-| nickname           | string | NOT NULL    |
-| first_name         | string | NOT NULL    |
-| last_name          | string | NOT NULL    |
-| first_name_huri    | string | NOT NULL    |
-| last_name_huri     | string | NOT NULL    |
-| birthday           | date   | NOT NULL    |
+| Column             | Type   | Options                  |
+| ------------------ | ------ | ------------------------ |
+| email              | string | null: false,unique: true |
+| encrypted_password | string | null: false              |
+| nickname           | string | null: false              |
+| first_name         | string | null: false              | 
+| last_name          | string | null: false              |
+| first_name_huri    | string | null: false              |
+| last_name_huri     | string | null: false              |
+| birthday           | date   | null: false              |
 
 ### Association
 
 * has_many :items
-* has_many :Orders
+* has_many :orders
 
 
 ## items テーブル
 
-| Column       | Type           | Options                    |
-| ------------ | -------------- | ---------------------------|
-| title        | string         | NOT NULL    　　　　　　　　　|
-| category     | string         | NOT NULL    　　　　　　　　　|
-| status       | string         | NOT NULL    　　　　　　　　　|
-| area         | string         | NOT NULL    　　　　　　　　　|
-| period       | string         | NOT NULL    　　　　　　　　　|
-| user         | references     | NOT NUll,foreign_key: true |
+
+
+| Column       | Type           | Options                       |
+| ------------ | -------------- | ------------------------------|
+| item_name    | string         | null: false 　　　　　　　　   　|
+| title        | string         | null: false 　　　　　　　　   　|
+| delivery_fee | integer        | null: false 　　　　　　　　   　|
+| category_id  | integer        | null: false 　　　　　　　   　　|
+| status_id    | integer        | null: false 　　　　　　   　　　|
+| area_id      | integer        | null: false 　　　　　   　　　　|
+| period_id    | integer        | null: false 　　　　   　　　　　|
+| place        | integer        | null: false 　　　　   　　　　　|
+| user         | references     | null: false,foreign_key: true |
 
 ### Association
 
-* belongs_to :order
+* has_one :order
 * belongs_to :user
 
 
 ## addresses テーブル
 | Column           | Type           | Options                        |
 |------------------|----------------|--------------------------------|
-| post_number      | string         | NOT NULL                       |
-| area             | string         | NOT NULL                       |
-| address1         | string         | NOT NULL                       |
-| address2         | string         | NOT NULL                       |
-| address3         | string         | NOT NULL                       |
-| phone_number     | string         | NOT NULL                       |
-| user             | references     | NOT NUll, foreign_key: true    |
+| post_number      | string         | null: false                    |
+| area_id          | integer        | null: false                    |
+| city             | string         | null: false                    |
+| house_num        | string         | null: false                    |
+| building_name    | string         |                                |     
+| order            | references     | null: false, foreign_key: true |
 
 ### Association
 
@@ -80,8 +84,8 @@ Things you may want to cover:
 
 | Column           | Type           | Options                        |
 |------------------|----------------|--------------------------------|
-| item            | references     | NOT NUll,foreign_key: true     |
-| user             | references     | NOT NUll,foreign_key: true     |
+| item             | references     | null: false, foreign_key: true |
+| user             | references     | null: false, foreign_key: true |
 
 ### Association
 
