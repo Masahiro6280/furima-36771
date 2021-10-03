@@ -73,7 +73,8 @@ Things you may want to cover:
 | area_id          | integer        | null: false                    |
 | city             | string         | null: false                    |
 | house_num        | string         | null: false                    |
-| building_name    | string         |                                |     
+| building_name    | string         |                                |
+| phone_number     | integer        | null: false                    |
 | order            | references     | null: false, foreign_key: true |
 
 ### Association
