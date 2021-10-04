@@ -1,0 +1,10 @@
+<!-- ## profile belongs to users テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| first_name         | string | NOT NULL    |
+| last_name          | string | NOT NULL    |
+| first_name_huri    | string | NOT NULL    |
+| last_name_huri     | string | NOT NULL    |
+| birthday           | string | NOT NULL    |
+ -->
