@@ -48,17 +48,17 @@ Things you may want to cover:
 
 
 
-| Column       | Type           | Options                       |
-| ------------ | -------------- | ------------------------------|
-| item_name    | string         | null: false 　　　　　　　　   　|
-| title        | text           | null: false 　　　　　　　　   　|
-| delivery_fee | integer        | null: false 　　　　　　　　   　|
-| category_id  | integer        | null: false 　　　　　　　   　　|
-| status_id    | integer        | null: false 　　　　　　   　　　|
-| area_id      | integer        | null: false 　　　　　   　　　　|
-| period_id    | integer        | null: false 　　　　   　　　　　|
-| place        | integer        | null: false 　　　　   　　　　　|
-| user         | references     | null: false,foreign_key: true |
+| Column           | Type           | Options                       |
+| ---------------- | -------------- | ------------------------------|
+| item_name        | string         | null: false 　　　　　　　　   　|
+| title            | text           | null: false 　　　　　　　　   　|
+| delivery_fee_id  | integer        | null: false 　　　　　　　　   　|
+| category_id      | integer        | null: false 　　　　　　　   　　|
+| status_id        | integer        | null: false 　　　　　　   　　　|
+| area_id          | integer        | null: false 　　　　　   　　　　|
+| period_id        | integer        | null: false 　　　　   　　　　　|
+| place            | integer        | null: false 　　　　   　　　　　|
+| user             | references     | null: false,foreign_key: true |
 
 ### Association
 
