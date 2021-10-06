@@ -41,9 +41,32 @@ require 'rails_helper'
               @user.password = '000000'
               @user.password_confirmation = '000000'
               @user.valid?
-              # binding.pry
-              expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+               expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
            end
+
+           it 'passwordが6文字未満であれば登録できない' do
+            @user.password = 'aa000'
+            @user.password_confirmation = 'aa000'
+            @user.valid?
+             expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+         end
+
+         it 'passwordが英字のみであれば登録できない' do
+          @user.password = 'aaaaaaa'
+          @user.password_confirmation = 'aaaaaaa'
+          @user.valid?
+           expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+       end
+
+        it 'passwordが全角であれば登録できない' do
+        @user.password = 'ああああああ'
+        @user.password_confirmation = 'ああああああ'
+        @user.valid?
+        
+         expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+         end
+          
+
 
            it 'passwordとpassword_confirmationが一致しないと登録できない' do
            @user.password_confirmation ='' 
@@ -111,29 +134,10 @@ require 'rails_helper'
           another_user = FactoryBot.build(:user)
           another_user.email = @user.email
           another_user.valid?
-          # binding.pry
+          
           expect(another_user.errors.full_messages).to include('Email has already been taken')
         end
       end
 
    end
 end
-
-# 全ての情報が入力されていれば登録できる
-
-# ニックネームが必須であること。
-# →ニックネームがあれば登録できる（正常系）✖︎
-# →ニックネームが空だったら登録できない（異常系）
-
-# メールアドレスが必須であること。
-# メールアドレスが一意性であること。
-# メールアドレスは、@を含む必要があること。
-# パスワードが必須であること。
-# パスワードは、6文字以上での入力が必須であること
-# パスワードは、半角英数字混合での入力が必須であること
-# パスワードとパスワード（確認）は、値の一致が必須であること。
-# お名前(全角)は、名字と名前がそれぞれ必須であること。
-# お名前(全角)は、全角（漢字・ひらがな・カタカナ）での入力が必須であること。
-# お名前カナ(全角)は、名字と名前がそれぞれ必須であること。
-# お名前カナ(全角)は、全角（カタカナ）での入力が必須であること。
-# 生年月日が必須であること。
