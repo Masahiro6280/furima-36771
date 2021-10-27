@@ -30,5 +30,6 @@ class Item < ApplicationRecord
   belongs_to :area
   
   belongs_to :period
+  has_one :order
 end
 
