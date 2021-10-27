@@ -21,11 +21,12 @@ class ItemsController < ApplicationController
    end
  
    def show
+  
    end
 
    def edit
     
-    unless current_user.id == @item.user.id 
+    unless @item.order == nil && current_user.id == @item.user.id 
       redirect_to action: :index
     end
    end
