@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   
    def update   
    
-   if @item.valid?
+   if 
     @item.update(item_params)
     redirect_to action: :show
    else
