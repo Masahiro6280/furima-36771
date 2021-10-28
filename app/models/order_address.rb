@@ -6,11 +6,11 @@ class OrderAddress
   validates :item_id, presence: true
   with_options presence: true do
 
-    validates :post_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :area_id, numericality: {other_than: 1, message: "can't be blank"}
+    validates :post_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は（ー）ハイフンを含んで入力してください"}
+    validates :area_id, numericality: {other_than: 1, message: "を入力してください"}
 end
     validates :phone_number, length: {minimum: 10, maximum: 11, message: 'は10~11桁で入力してください'}
-    validates :phone_number, presence: true,  numericality: { with: /\A\d{10,11}\z/, message: 'Half-width number' }
+    validates :phone_number, presence: true,  numericality: { with: /\A\d{10,11}\z/, message: 'は半角数字で入力してください' }
     validates :city, presence: true
  
     validates :house_num, presence: true

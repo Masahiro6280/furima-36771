@@ -5,15 +5,15 @@ class Item < ApplicationRecord
 
   validates :item_name,         presence: true
   validates :title,             presence: true
-  validates :delivery_fee_id,   presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :category_id,       presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :status_id,         presence: true, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :area_id,           presence: true, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :period_id,         presence: true, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_fee_id,   presence: true, numericality: { other_than: 1 , message: "を選択してください"} 
+  validates :category_id,       presence: true, numericality: { other_than: 1 , message: "を選択してください"} 
+  validates :status_id,         presence: true, numericality: { other_than: 1 , message: "を選択してください"}
+  validates :area_id,           presence: true, numericality: { other_than: 1 , message: "を選択してください"}
+  validates :period_id,         presence: true, numericality: { other_than: 1 , message: "を選択してください"}
 
-  validates :place,   presence: true,  numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
+  validates :place,   presence: true,  numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
   validates :place,
-            numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
+            numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は300円〜9,999,999円の範囲で価格設定を行ってください' }
   
   validates :user,              presence: true
 

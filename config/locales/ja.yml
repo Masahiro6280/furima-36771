@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        first_name: 苗字
+        last_name: 名前
+        first_name_huri: 苗字(フリガナ)
+        last_name_huri: 名前(フリガナ)
+        birthday: 生年月日
+      item:
+        item_name: 商品名
+        title: 商品説明
+        image: 画像
+        delivery_fee_id: 配送料の負担
+        category_id: カテゴリー
+        status_id: 商品の状態
+        area_id: 発送元の地域
+        period_id: 発送までの日数
+        place: 価格
+  attributes:
+    post_number: 郵便番号
+    area_id: 都道府県
+    phone_number: 電話番号
+    house_num: 番地
+    city: 市区町村
+    token: カード情報
+
+    
